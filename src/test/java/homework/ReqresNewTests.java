@@ -63,10 +63,6 @@ public class ReqresNewTests {
                 .statusCode(200)
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
-
-
-
-
 }
 
 
