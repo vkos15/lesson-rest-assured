@@ -1,6 +1,7 @@
 package tests;
 
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static filters.CustomLogFilter.customLogFilter;
@@ -24,6 +25,7 @@ public class DemoWebShopTests {
 //            --insecure
 
     @Test
+    @Tag("allure_log")
     void addToCartTest() {
 
         Response response = given()
@@ -49,6 +51,7 @@ public class DemoWebShopTests {
     }
 
     @Test
+    @Tag("allure_log")
     void addToCartWithCookieTest() {
 
         Response response = given()

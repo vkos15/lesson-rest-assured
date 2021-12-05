@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
@@ -73,6 +74,7 @@ public class BookStoreTest {
     }
 
     @Test
+    @Tag("allure_log")
     void allureWithListenerTest() {
 
 //        String data = "{" +
@@ -100,6 +102,7 @@ public class BookStoreTest {
     }
 
     @Test
+    @Tag("allure_log")
     void allureWithTemplatesTest() {
 
         String data = "{" +

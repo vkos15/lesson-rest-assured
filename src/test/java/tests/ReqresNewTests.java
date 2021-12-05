@@ -1,6 +1,7 @@
 package tests;
 
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static filters.CustomLogFilter.customLogFilter;
@@ -10,6 +11,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class ReqresNewTests {
 
     @Test
+    @Tag("allure_log")
     void sizeListOfUsers() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -20,6 +22,7 @@ public class ReqresNewTests {
     }
 
     @Test
+    @Tag("allure_log")
     void checkSingleUserLastName() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -30,6 +33,7 @@ public class ReqresNewTests {
     }
 
     @Test
+    @Tag("allure_log")
     void checkCreateUser() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -45,6 +49,7 @@ public class ReqresNewTests {
     }
 
     @Test
+    @Tag("allure_log")
     void unsuccessfulRegistration() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -58,6 +63,7 @@ public class ReqresNewTests {
     }
 
     @Test
+    @Tag("allure_log")
     void successfulRegistration() {
         given()
                 .filter(customLogFilter().withCustomTemplates())

@@ -56,4 +56,12 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+    task allure_log_tests(type:Test){
+        useJUnitPlatform{
+            includeTags "allure_log"
+        }
+    }
+
+
 }

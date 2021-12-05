@@ -1,6 +1,7 @@
 package tests;
 
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static filters.CustomLogFilter.customLogFilter;
@@ -89,6 +90,7 @@ public class SelenoidTests {
     }
 
     @Test
+    @Tag("allure_log")
     void checkWdHubStatus200WithAuth(){
         given()
                 .filter(customLogFilter().withCustomTemplates())
