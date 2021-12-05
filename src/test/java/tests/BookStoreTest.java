@@ -47,6 +47,7 @@ public class BookStoreTest {
     }
 
     @Test
+    @Tag("allure_log")
     void autorizeTest() {
 
         String data = "{" +
@@ -101,7 +102,7 @@ public class BookStoreTest {
     }
 
     @Test
-    @Tag("allure_log")
+        // @Tag("allure_log")
     void allureWithTemplatesTest() {
 
         String data = "{" +
