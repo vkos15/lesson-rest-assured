@@ -60,6 +60,7 @@ public class BookStoreTest {
 //       data.put("username","valentina");
 //        data.put("password","qwe123");
         given()
+                .filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
                 .log().uri()
                 .log().body()
