@@ -102,10 +102,15 @@ public class BookStoreTest {
     @Test
     void allureWithTemplatesTest() {
 
+//        String data = "{" +
+//                "  \"userName\": \"valentina\"," +
+//                "  \"password\": \"Q_we#123456\"" +
+//                "}";
         String data = "{" +
-                "  \"userName\": \"valentina\"," +
-                "  \"password\": \"Q_we#123456\"" +
+                "  \"userName\": \"alex\"," +
+                "  \"password\": \"asdsad#frew_DFS2\"" +
                 "}";
+
         step("Generate token", () ->
                 given()
                         .filter(customLogFilter().withCustomTemplates())
