@@ -4,7 +4,6 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
-import static filters.CustomLogFilter.customLogFilter;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -67,7 +66,6 @@ public class BookStoreTest {
                 .body(data.toString())
                 .post("https://demoqa.com/Account/v1/GenerateToken")
                 .then()
-                .log().body()
                 .body("status", is("Success"))
                 .body("result", is("User authorized successfully."));
         //  .body("books", hasSize(greaterThan(0)));
@@ -111,7 +109,8 @@ public class BookStoreTest {
 
         step("Generate token", () ->
                 given()
-                        .filter(customLogFilter().withCustomTemplates())
+                        //  .filter(customLogFilter().withCustomTemplates())
+                        .filter(new AllureRestAssured())
                         .contentType(ContentType.JSON)
                         .log().uri()
                         .log().body()
@@ -138,10 +137,12 @@ public class BookStoreTest {
 
         given()
                 .filter(new AllureRestAssured())
-                .contentType(ContentType.JSON)
+                .contentType("application/json")
+                .accept("application/json")
+                .body(data.toString())
+                .when()
                 .log().uri()
                 .log().body()
-                .body(data.toString())
                 .post("https://demoqa.com/Account/v1/GenerateToken")
                 .then()
                 .log().body()
