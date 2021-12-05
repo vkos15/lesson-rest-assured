@@ -64,7 +64,6 @@ public class BookStoreTest {
                 .log().uri()
                 .log().body()
                 .body(data.toString())
-
                 .post("https://demoqa.com/Account/v1/GenerateToken")
                 .then()
                 .log().body()

@@ -8,9 +8,6 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static filters.CustomLogFilter.customLogFilter;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
 
 public class DemoWebShopNewTests {
 
@@ -18,18 +15,18 @@ public class DemoWebShopNewTests {
     @Test
     void wishListTest() {
 
-        given()
-                .filter(customLogFilter().withCustomTemplates())
-                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
-                .cookie("Nop.customer=34bfae66-f0f6-4f92-b943-0438cb7489f4;")
-                .body("addtocart_78.EnteredQuantity=1")
-                .when()
-                .post("http://demowebshop.tricentis.com/addproducttocart/details/78/2")
-                .then()
-                .statusCode(200)
-                .body("success", is(true))
-                .body("message", is("The product has been added to your <a href=\"/wishlist\">wishlist</a>"))
-                .body("updatetopwishlistsectionhtml", is("(1)"));
+//        given()
+//                .filter(customLogFilter().withCustomTemplates())
+//                .contentType("application/x-www-form-urlencoded; charset=UTF-8")
+//                .cookie("Nop.customer=34bfae66-f0f6-4f92-b943-0438cb7489f4;")
+//                .body("addtocart_78.EnteredQuantity=1")
+//                .when()
+//                .post("http://demowebshop.tricentis.com/addproducttocart/details/78/2")
+//                .then()
+//                .statusCode(200)
+//                .body("success", is(true))
+//                .body("message", is("The product has been added to your <a href=\"/wishlist\">wishlist</a>"))
+//                .body("updatetopwishlistsectionhtml", is("(1)"));
 
         open("http://demowebshop.tricentis.com/Themes/DefaultClean/Content/images/logo.png");
         //добавили куки, перед этим открыли "легкую" страничку сайта, чтобы можно было их добавить
