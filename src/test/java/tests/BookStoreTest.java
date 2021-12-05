@@ -47,6 +47,7 @@ public class BookStoreTest {
     }
 
     @Test
+    @Tag("allure_log")
     void autorizeTest() {
 
         String data = "{" +
