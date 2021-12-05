@@ -74,7 +74,6 @@ public class BookStoreTest {
     }
 
     @Test
-    @Tag("allure_log")
     void allureWithListenerTest() {
 
 //        String data = "{" +
