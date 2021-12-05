@@ -55,24 +55,24 @@ public class BookStoreTest {
                 "  \"password\": \"asdsad#frew_DFS2\"" +
                 "}";
 
-//
-//
-//        Map<String ,String> data = new HashMap<>();
-//       data.put("username","valentina");
-//        data.put("password","qwe123");
+//        Map<String, String> data = new HashMap<>();
+//        data.put("userName", "alex");
+//        data.put("password", "asdsad#frew_DFS2");
+
         given()
-                .filter(new AllureRestAssured())
-                .contentType(ContentType.JSON)
+                .contentType("application/json")
+                .accept("application/json")
+                .body(data.toString())
+                .when()
                 .log().uri()
                 .log().body()
-                .body(data.toString())
                 .post("https://demoqa.com/Account/v1/GenerateToken")
                 .then()
+                .log().body()
                 .body("status", is("Success"))
                 .body("result", is("User authorized successfully."));
-        //  .body("books", hasSize(greaterThan(0)));
-
     }
+
 
     @Test
     void allureWithListenerTest() {
