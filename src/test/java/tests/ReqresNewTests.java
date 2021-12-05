@@ -1,8 +1,9 @@
-package homework;
+package tests;
 
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
+import static filters.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -11,6 +12,7 @@ public class ReqresNewTests {
     @Test
     void sizeListOfUsers() {
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .get("https://reqres.in/api/users?page=2")
                 .then()
                 .statusCode(200)
@@ -20,6 +22,7 @@ public class ReqresNewTests {
     @Test
     void checkSingleUserLastName() {
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .get("https://reqres.in/api/users/2")
                 .then()
                 .statusCode(200)
@@ -29,6 +32,7 @@ public class ReqresNewTests {
     @Test
     void checkCreateUser() {
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.JSON)
                 .body("{ \"name\": \"morpheus\", \"job\": \"leader\" }")
                 .when()
@@ -43,6 +47,7 @@ public class ReqresNewTests {
     @Test
     void unsuccessfulRegistration() {
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.JSON)
                 .body("{ \"email\": \"sydney@fife\" }")
                 .when()
@@ -55,6 +60,7 @@ public class ReqresNewTests {
     @Test
     void successfulRegistration() {
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.JSON)
                 .body("{ \"email\": \"eve.holt@reqres.in\", \"password\": \"pistol\" }")
                 .when()

@@ -1,8 +1,9 @@
-package lesson2;
+package tests;
 
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
+import static filters.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -50,6 +51,7 @@ public class DemoWebShopTests {
     void addToCartWithCookieTest() {
 
         Response response = given()
+                .filter(customLogFilter().withCustomTemplates())
                 .log().all()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .body("product_attribute_72_5_18=53&product_attribute_72_6_19=54" +

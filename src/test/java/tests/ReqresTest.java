@@ -1,8 +1,9 @@
-package ru.vkost;
+package tests;
 
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
+import static filters.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -37,6 +38,7 @@ public class ReqresTest {
     @Test
     void  negativeLogin(){
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.JSON)
                 .body("{ \"email\": \"eve.holt@reqres.in\" }")
                 .when()

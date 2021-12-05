@@ -1,4 +1,4 @@
-package homework2;
+package tests;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static filters.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -18,6 +19,7 @@ public class DemoWebShopNewTests {
     void wishListTest() {
 
         given()
+                .filter(customLogFilter().withCustomTemplates())
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .cookie("Nop.customer=34bfae66-f0f6-4f92-b943-0438cb7489f4;")
                 .body("addtocart_78.EnteredQuantity=1")
