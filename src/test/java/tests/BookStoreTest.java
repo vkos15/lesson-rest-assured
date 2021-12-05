@@ -48,11 +48,7 @@ public class BookStoreTest {
 
     @Test
     void autorizeTest() {
-//
-//        String data = "{" +
-//                "  \"userName\": \"valentina\"," +
-//                "  \"password\": \"Q_we#123456\"" +
-//                "}";
+
         String data = "{" +
                 "  \"userName\": \"alex\"," +
                 "  \"password\": \"asdsad#frew_DFS2\"" +
@@ -102,10 +98,6 @@ public class BookStoreTest {
     @Test
     void allureWithTemplatesTest() {
 
-//        String data = "{" +
-//                "  \"userName\": \"valentina\"," +
-//                "  \"password\": \"Q_we#123456\"" +
-//                "}";
         String data = "{" +
                 "  \"userName\": \"alex\"," +
                 "  \"password\": \"asdsad#frew_DFS2\"" +
@@ -134,8 +126,8 @@ public class BookStoreTest {
     void allureWithSchemeTest() {
 
         String data = "{" +
-                "  \"userName\": \"valentina\"," +
-                "  \"password\": \"Q_we#123456\"" +
+                "  \"userName\": \"alex\"," +
+                "  \"password\": \"asdsad#frew_DFS2\"" +
                 "}";
 
         given()
@@ -151,6 +143,5 @@ public class BookStoreTest {
                 .body("status", is("Success"))
                 .body("result", is("User authorized successfully."));
     }
-
 
 }
